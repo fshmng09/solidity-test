@@ -1,3 +1,5 @@
+// This is for Ganache
+
 // ライブラリのインポート
 const assert = require('assert');  // テスト assert をするためのライブラリ
 const Web3 = require('web3');      // ローカル環境(Ganache)と接続するためのライブラリ

@@ -28,9 +28,14 @@
 
 1. `npm ci`
 2. `npx truffle compile`
-3. Ganacheの起動
+3. Ganacheの起動, truffle-config.jsをGanacheにimport
 4. `npx truffle migrate --netowork development`
 5. `npm run test` //これでdeploy, call, send ができます。
+
+
+network に rinkebyも選択可能です。
+
+https://media-terminal.net/rinkeby-deploy
 
 ## Memo
 

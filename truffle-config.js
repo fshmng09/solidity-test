@@ -41,10 +41,14 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
-// require('dotenv').config();
-// const { MNEMONIC, PROJECT_ID } = process.env;
+require('dotenv').config();
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+// TODO prepare .env file
+const { MNEMONIC, ACCESS_TOKEN } = process.env;
+
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+const gas = 4000000;
+const gasPrice = 100000000 * 60;
 
 module.exports = {
   /**
@@ -64,6 +68,20 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
+    rinkeby: {
+      provider:  () => {
+          return new HDWalletProvider(
+            MNEMONIC,
+            ACCESS_TOKEN
+          );
+        },
+        network_id: 4,
+        gas: gas,
+        gasPrice: gasPrice,
+        skipDryRun: true,
+        networkCheckTimeout: 10000,
+        timeoutBlocks: 200
+    },
     development: {
       host: "127.0.0.1",
       port: 7545,
